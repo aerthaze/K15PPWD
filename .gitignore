@@ -1,0 +1,16 @@
+# Artifacts lokal distribusi & audit (tidak di-commit ke branch aplikasi utama)
+handover/
+anti-slop/
+
+# Dependensi (jika ada tools lokal terpasang)
+node_modules/
+
+# File sistem OS & editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.log
+*.bak
+.vscode/
+.idea/
