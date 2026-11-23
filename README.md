@@ -45,7 +45,7 @@ Mengintegrasikan HTML5 semantik, CSS3 eksternal, Bootstrap 5, JavaScript Vanilla
 
 ---
 
-## 3. Struktur Folder Proyek (Pada Branch `main` Terintegrasi)
+## 4. Struktur Folder Proyek (Pada Branch `main` Terintegrasi)
 
 ```text
 K15PPWD/
@@ -78,7 +78,7 @@ K15PPWD/
 
 ---
 
-## 4. Cara Menjalankan Aplikasi
+## 5. Cara Menjalankan Aplikasi
 
 1. Pastikan folder `K15PPWD/` berisi seluruh file proyek secara lengkap.
 2. Jalankan salah satu cara berikut:
@@ -93,7 +93,7 @@ K15PPWD/
 
 ---
 
-## 5. Cara Kerja `localStorage`
+## 6. Cara Kerja `localStorage`
 
 1. Saat halaman dimuat, `window.SynthSpiceApp.init()` memanggil `loadCartFromStorage()` untuk membaca kunci `synth_spice_cart_v1`.
 2. Setiap entri `{ id, jumlah }` dicek ulang terhadap katalog `SYNTH_SPICE_MENU` agar ID yang tidak valid terbuang dan jumlah tidak pernah melebihi stok simulasi. Jika JSON korup, keranjang otomatis di-reset dengan aman.
