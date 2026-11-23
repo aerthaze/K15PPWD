@@ -1,4 +1,4 @@
-# Synth & Spice Restaurant Ordering System (K15PPWD)
+# Synth & Spice Restaurant Ordering System
 
 Aplikasi web pemesanan makanan digital **Synth & Spice** untuk memenuhi Proyek UAS Mata Kuliah **Praktikum Pemrograman Web Dasar** (Studi Kasus **K15: Sistem Pemesanan Makanan Restoran**).
 
