@@ -20,7 +20,7 @@ Aplikasi web pemesanan makanan digital **Synth & Spice** untuk memenuhi Proyek U
 | 1 | Muhammad Hafizh Alfitra | H1101251003 | JavaScript Vanilla | `feature/javascript` | `js/menu-data.js`, `js/script.js` |
 | 2 | Dimas Lutfi Salim | H1101251004 | jQuery | `feature/jquery` | `js/jquery-interactions.js` |
 | 3 | Muhammad Farras Haidar Revanezka | H1101251035 | CSS | `feature/css` | `css/style.css` |
-| 4 | Chattama Albiantoro | H1101251069 | HTML &amp; Dokumentasi | `feature/html` | `README.md`, `index.html`, `assets/` |
+| 4 | Chattama Albiantoro | H1101251069 | HTML dan Dokumentasi | `feature/html` | `README.md`, `index.html`, `assets/` |
 
 ---
 
