@@ -93,7 +93,7 @@ K15PPWD/
 
 ---
 
-## 7. Cara Kerja `localStorage`
+## 5. Cara Kerja `localStorage`
 
 1. Saat halaman dimuat, `window.SynthSpiceApp.init()` memanggil `loadCartFromStorage()` untuk membaca kunci `synth_spice_cart_v1`.
 2. Setiap entri `{ id, jumlah }` dicek ulang terhadap katalog `SYNTH_SPICE_MENU` agar ID yang tidak valid terbuang dan jumlah tidak pernah melebihi stok simulasi. Jika JSON korup, keranjang otomatis di-reset dengan aman.
