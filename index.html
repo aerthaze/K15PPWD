@@ -565,7 +565,18 @@
           </div>
 
           <div class="modal-body-custom">
-            <div id="modal-ringkasan-list" class="modal-item-list"></div>
+            <div id="modal-ringkasan-list" class="modal-item-list mb-3"></div>
+
+            <div class="modal-info-box p-3 rounded">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-secondary small">Waktu Pemesanan</span>
+                <span id="modal-ringkasan-waktu" class="small fw-semibold text-main">-</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="text-secondary small">Catatan</span>
+                <span id="modal-ringkasan-catatan" class="small fst-italic text-main">-</span>
+              </div>
+            </div>
           </div>
 
           <div class="modal-footer-custom">
@@ -638,10 +649,24 @@
                 <span id="nomor-pesanan-sukses" class="receipt-value text-highlight-orange">-</span>
               </div>
               <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="receipt-label">Waktu Pemesanan</span>
+                <span id="waktu-pesanan-sukses" class="receipt-sub">-</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mb-2">
                 <span class="receipt-label">Pemesan &amp; Meja</span>
                 <span id="pemesan-pesanan-sukses" class="receipt-sub">-</span>
               </div>
-              <div class="d-flex justify-content-between align-items-center pt-2 border-top card-divider">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="receipt-label">Catatan</span>
+                <span id="catatan-pesanan-sukses" class="receipt-sub fst-italic">-</span>
+              </div>
+
+              <div class="my-3 pt-2 pb-2 border-top border-bottom card-divider">
+                <div class="receipt-label mb-2 fw-semibold">Item yang Dipesan:</div>
+                <div id="item-pesanan-sukses" class="receipt-item-list"></div>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center pt-2">
                 <span class="receipt-label fw-bold">Total Pembayaran</span>
                 <span id="total-pesanan-sukses" class="receipt-total">-</span>
               </div>

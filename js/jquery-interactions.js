@@ -354,11 +354,26 @@ $(document).ready(function () {
         }
     });
 
+    function updateReviewModalInfo() {
+        var note = String($('#catatan-pesanan').val() || '').trim();
+        var now = new Date();
+        var dd = String(now.getDate()).padStart(2, '0');
+        var mm = String(now.getMonth() + 1).padStart(2, '0');
+        var yyyy = now.getFullYear();
+        var hh = String(now.getHours()).padStart(2, '0');
+        var min = String(now.getMinutes()).padStart(2, '0');
+        var timeStr = dd + '/' + mm + '/' + yyyy + ' ' + hh + ':' + min + ' WIB';
+
+        $('#modal-ringkasan-waktu').text(timeStr);
+        $('#modal-ringkasan-catatan').text(note || '-');
+    }
+
     // Tinjau pesanan
     $('#btn-tinjau-pesanan').on('click', function () {
         if (window.SynthSpiceApp.getCart().length === 0) {
             return;
         }
+        updateReviewModalInfo();
         if (cartModalInstance) {
             cartModalInstance.hide();
         }
@@ -394,10 +409,24 @@ $(document).ready(function () {
             return;
         }
 
-        // Tampilkan detail pesanan di modal
+        // Tampilkan detail pesanan di modal konfirmasi
         $('#nomor-pesanan-sukses').text(orderResult.data.orderNumber);
+        $('#waktu-pesanan-sukses').text(orderResult.data.createdAt);
         $('#pemesan-pesanan-sukses').text(customerName + ' (Meja ' + tableNumber + ')');
+        $('#catatan-pesanan-sukses').text(orderResult.data.orderNote);
         $('#total-pesanan-sukses').text(orderResult.data.totalPriceFormatted);
+
+        // Render rincian apa yang dipesan
+        var itemsHtml = '';
+        var items = orderResult.data.items || [];
+        for (var i = 0; i < items.length; i += 1) {
+            var it = items[i];
+            itemsHtml += '<div class="receipt-item-row">' +
+                '<span>' + escapeHtml(it.nama) + ' &times; ' + escapeHtml(it.jumlah) + '</span>' +
+                '<span class="text-secondary">' + escapeHtml(window.SynthSpiceApp.formatRupiah(it.subtotal)) + '</span>' +
+            '</div>';
+        }
+        $('#item-pesanan-sukses').html(itemsHtml);
 
         if (reviewModalInstance) {
             reviewModalInstance.hide();
@@ -606,6 +635,7 @@ $(document).ready(function () {
         }
 
         $formAlert.addClass('d-none').text('');
+        updateReviewModalInfo();
         if (reviewModalInstance) {
             reviewModalInstance.show();
         }
