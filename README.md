@@ -14,8 +14,13 @@ Aplikasi web pemesanan makanan digital **Synth & Spice** untuk memenuhi Proyek U
 - **Asisten Dosen**:
   1. Aldinata Retnas
   2. Gian
-- **Nomor Kelompok**: `[Belum terkonfirmasi - Diisi kelompok sesuai daftar resmi dari dosen]`
-- **Repository GitHub**: `https://github.com/aerthaze/K15PPWD.git`
+
+| No. | Nama Anggota | NIM | Tanggung Jawab | Branch GitHub | File Utama |
+|---|---|---|---|---|---|
+| 1 | Muhammad Hafizh Alfitra | H1101251003 | JavaScript Vanilla | `feature/javascript` | `js/menu-data.js`, `js/script.js` |
+| 2 | Dimas Lutfi Salim | H1101251004 | jQuery | `feature/jquery` | `js/jquery-interactions.js` |
+| 3 | Muhammad Farras Haidar Revanezka | H1101251035 | CSS | `feature/css` | `css/style.css` |
+| 4 | Chattama Albiantoro | H1101251069 | HTML &amp; Dokumentasi | `feature/html` | `index.html`, `assets/` |
 
 ---
 
@@ -40,37 +45,12 @@ Mengintegrasikan HTML5 semantik, CSS3 eksternal, Bootstrap 5, JavaScript Vanilla
 
 ---
 
-## 4. Fitur Wajib & Fitur Bonus (K15)
-
-### Fitur Wajib
-1. Halaman katalog menu dalam grid card Bootstrap (**3 kolom desktop**, **2 kolom tablet**, **1 kolom mobile**).
-2. Setiap menu tampil dalam card Bootstrap berisi gambar lokal, nama, kategori, deskripsi, stok simulasi, harga Rupiah, dan tombol **Tambah**.
-3. Filter menu berdasarkan kategori (**Semua**, **Makanan**, **Minuman**, **Camilan**).
-4. Keranjang pesanan di **sidebar kanan pada desktop** dan berpindah ke **bagian bawah pada mobile/tablet**.
-5. Tombol **increment (`+`)** dan **decrement (`-`)** jumlah item dengan pembatasan stok simulasi.
-6. Perhitungan **subtotal dan total pembayaran otomatis** setiap kali keranjang berubah.
-7. Form data pelanggan (**Nama Pelanggan**, **Nomor Meja**, dan **Catatan** opsional) dengan **validasi jQuery** serta pembersihan pesan error langsung saat input diperbaiki.
-8. **Modal konfirmasi pesanan Bootstrap** berisi nomor pesanan unik, waktu, data pelanggan, tabel ringkasan item, dan total yang harus dibayar, lalu mengosongkan keranjang dan `localStorage`.
-9. **Tombol hapus item** (serta pengurangan item terakhir dan tombol kosongkan keranjang) dengan **modal konfirmasi Bootstrap**.
-
-### Fitur Bonus
-1. **Search Menu**: Pencarian real-time berdasarkan nama menu (tidak membedakan huruf kapital dan nonkapital) beserta empty state dan tombol reset.
-2. **Badge Keranjang**: Badge jumlah item pada tombol keranjang di navbar dan header keranjang. Penghitungan dilakukan berdasarkan **total kuantitas seluruh unit item** di dalam keranjang (misal 2 burger + 1 minuman = `3`), bukan sekadar jumlah jenis menu.
-3. **Persistensi `localStorage`**: Menyimpan isi keranjang (`{ id, jumlah }`) di kunci `synth_spice_cart_v1` agar tidak hilang saat halaman di-refresh, lengkap dengan pemulihan defensif jika data korup.
-
----
-
-> **Aturan Repository**: File `README.md` ini hanya ditempatkan dan dikelola pada branch **`main`**. Branch fitur anggota (`feature/html`, `feature/css`, `feature/javascript`, `feature/jquery`) tidak menyimpan file `README*` tambahan agar merge ke `main` tetap bersih tanpa konflik dokumentasi.
-
----
-
-## 5. Struktur Folder Proyek (Pada Branch `main` Terintegrasi)
+## 3. Struktur Folder Proyek (Pada Branch `main` Terintegrasi)
 
 ```text
 K15PPWD/
 ├── index.html
-├── README.md                         # Khusus branch main
-├── laporan.pdf
+├── README.md                        
 ├── .gitignore
 ├── css/
 │   └── style.css
@@ -98,7 +78,7 @@ K15PPWD/
 
 ---
 
-## 6. Cara Menjalankan Aplikasi
+## 4. Cara Menjalankan Aplikasi
 
 1. Pastikan folder `K15PPWD/` berisi seluruh file proyek secara lengkap.
 2. Jalankan salah satu cara berikut:
@@ -119,18 +99,3 @@ K15PPWD/
 2. Setiap entri `{ id, jumlah }` dicek ulang terhadap katalog `SYNTH_SPICE_MENU` agar ID yang tidak valid terbuang dan jumlah tidak pernah melebihi stok simulasi. Jika JSON korup, keranjang otomatis di-reset dengan aman.
 3. Setiap aksi tambah, increment, decrement, hapus, atau kosongkan keranjang langsung memanggil `saveCartToStorage()`.
 4. Saat pesanan dikonfirmasi melalui `createOrder()`, keranjang dikosongkan dan `localStorage` diperbarui menjadi `[]`.
-
----
-
-## 8. Pembagian Tugas & Informasi Repository
-
-| No. | Nama Anggota | NIM | Tanggung Jawab | Branch GitHub | File Utama |
-|---|---|---|---|---|---|
-| 1 | Muhammad Hafizh Alfitra | H1101251003 | JavaScript Vanilla | `feature/javascript` | `js/menu-data.js`, `js/script.js` |
-| 2 | Dimas Lutfi Salim | H1101251004 | jQuery | `feature/jquery` | `js/jquery-interactions.js` |
-| 3 | Muhammad Farras Haidar Revanezka | H1101251035 | CSS | `feature/css` | `css/style.css` |
-| 4 | Chattama Albiantoro | H1101251069 | HTML &amp; Dokumentasi | `feature/html` | `index.html`, `assets/` |
-
-
-- Rencana kontribusi awal setara (25% per anggota); persentase kontribusi final dicatat berdasarkan riwayat Pull Request aktual pada repository `https://github.com/aerthaze/K15PPWD.git`.
-- Lihat panduan lengkap kolaborasi Git pada [docs/PANDUAN-GITHUB.md](docs/PANDUAN-GITHUB.md) dan rincian integrasi pada [docs/INTEGRATION-CONTRACT.md](docs/INTEGRATION-CONTRACT.md).
