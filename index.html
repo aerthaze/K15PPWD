@@ -1,0 +1,733 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Synth &amp; Spice Restaurant Ordering System - Sistem pemesanan makanan fast food digital untuk studi kasus K15."
+    />
+    <title>Synth &amp; Spice | Sistem Pemesanan Makanan Restoran</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header id="top" class="site-header sticky-top">
+      <nav
+        class="navbar navbar-expand-lg navbar-dark custom-navbar"
+        aria-label="Navigasi Utama"
+      >
+        <div class="container app-container">
+          <a
+            class="navbar-brand navbar-brand-logo d-flex align-items-center"
+            href="#top"
+          >
+            <img
+              src="assets/logo/synth-spice-logo.svg"
+              width="185"
+              height="37"
+              alt="Logo Synth and Spice"
+            />
+          </a>
+
+          <div class="d-flex align-items-center gap-2 order-lg-3">
+            <a
+              id="btn-keranjang"
+              href="#modal-keranjang"
+              class="btn btn-nav-keranjang d-inline-flex align-items-center gap-2"
+              aria-label="Buka keranjang pesanan"
+            >
+              <img src="assets/icons/cart.svg" width="16" height="16" alt="" />
+              <span class="d-none d-sm-inline">Keranjang</span>
+              <span
+                id="cart-count"
+                class="badge badge-keranjang"
+                aria-label="Total item di keranjang"
+                >0</span
+              >
+            </a>
+            <button
+              class="navbar-toggler custom-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#mainNav"
+              aria-controls="mainNav"
+              aria-expanded="false"
+              aria-label="Buka menu navigasi"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+
+          <div class="collapse navbar-collapse order-lg-2" id="mainNav">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-4">
+              <li class="nav-item">
+                <a class="nav-link custom-nav-link" href="#menu-section"
+                  >Menu Digital</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link custom-nav-link" href="#restaurant-info"
+                  >Tentang Restoran</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section id="hero-section" class="hero-section">
+        <div class="container app-container py-5">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-12 col-lg-6">
+              <h1 class="hero-title mb-3">BURGER. RAMEN.<br />TANPA ANTRE.</h1>
+              <p class="hero-subtitle mb-4">
+                Pilih menu favoritmu dan pesan langsung dari meja.
+              </p>
+              <div class="d-flex flex-wrap gap-3">
+                <a href="#menu-section" class="btn btn-custom-primary"
+                  >Lihat Daftar Menu</a
+                >
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <figure class="hero-media-frame mb-0">
+                <img
+                  src="assets/images/food/hero-signature-combo.jpg"
+                  class="img-fluid hero-food-img"
+                  width="1200"
+                  height="750"
+                  fetchpriority="high"
+                  alt="Paket andalan Synth &amp; Spice berisi burger roti arang, kentang keju, dan minuman citrus biru dingin"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="menu-section" class="ordering-section py-5">
+        <div class="container app-container">
+          <div class="row g-4 align-items-start">
+            <div class="col-12 col-lg-8">
+              <div class="catalog-toolbar pb-3 mb-4">
+                <div class="row g-3 align-items-center mb-3">
+                  <div class="col-12 col-md-6">
+                    <h2 class="section-title mb-0">Menu Digital</h2>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="search-menu" class="visually-hidden"
+                      >Cari menu berdasarkan nama</label
+                    >
+                    <div class="input-group search-input-group">
+                      <span
+                        class="input-group-text search-addon"
+                        aria-hidden="true"
+                      >
+                        <img
+                          src="assets/icons/search.svg"
+                          width="16"
+                          height="16"
+                          alt=""
+                        />
+                      </span>
+                      <input
+                        type="search"
+                        id="search-menu"
+                        class="form-control input-search-field"
+                        placeholder="Cari nama menu..."
+                        autocomplete="off"
+                      />
+                      <button
+                        type="button"
+                        id="btn-clear-search"
+                        class="btn btn-clear-input d-none"
+                        aria-label="Bersihkan kata kunci pencarian"
+                      >
+                        Hapus
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  id="filter-kategori"
+                  class="d-flex flex-wrap gap-3"
+                  role="group"
+                  aria-label="Filter kategori menu"
+                >
+                  <button
+                    type="button"
+                    class="btn btn-filter btn-filter-category is-active"
+                    data-category="semua"
+                    aria-pressed="true"
+                  >
+                    Semua
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-filter btn-filter-category d-inline-flex align-items-center gap-2"
+                    data-category="makanan"
+                    aria-pressed="false"
+                  >
+                    <img
+                      src="assets/icons/food.svg"
+                      width="14"
+                      height="14"
+                      alt=""
+                    />
+                    <span>Makanan</span>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-filter btn-filter-category d-inline-flex align-items-center gap-2"
+                    data-category="minuman"
+                    aria-pressed="false"
+                  >
+                    <img
+                      src="assets/icons/drink.svg"
+                      width="14"
+                      height="14"
+                      alt=""
+                    />
+                    <span>Minuman</span>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-filter btn-filter-category d-inline-flex align-items-center gap-2"
+                    data-category="camilan"
+                    aria-pressed="false"
+                  >
+                    <img
+                      src="assets/icons/snack.svg"
+                      width="14"
+                      height="14"
+                      alt=""
+                    />
+                    <span>Camilan</span>
+                  </button>
+                </div>
+              </div>
+
+              <p id="info-menu" class="menu-result-info visually-hidden">
+                Memuat daftar menu...
+              </p>
+
+              <div
+                id="alert-notifikasi"
+                class="alert feedback-alert d-none mb-3"
+                role="alert"
+                aria-live="polite"
+              ></div>
+
+              <div
+                id="loading-menu"
+                class="state-box text-center py-5 mb-3"
+              >
+                <div
+                  class="spinner-border custom-spinner mb-3"
+                  role="status"
+                  aria-hidden="true"
+                ></div>
+                <p class="mb-0">Memuat daftar menu...</p>
+              </div>
+
+              <div id="daftar-menu" class="row g-4" aria-live="polite"></div>
+
+              <div
+                id="menu-kosong"
+                class="state-box text-center py-5 d-none"
+              >
+                <img
+                  src="assets/icons/alert.svg"
+                  width="36"
+                  height="36"
+                  class="mb-3"
+                  alt=""
+                />
+                <h3 class="h5 mb-2">Menu Tidak Ditemukan</h3>
+                <p class="section-note mb-3">
+                  Tidak ada menu yang cocok dengan filter atau kata kunci
+                  tersebut.
+                </p>
+                <button
+                  type="button"
+                  id="btn-reset-filter"
+                  class="btn btn-custom-outline"
+                >
+                  Tampilkan Semua Menu
+                </button>
+              </div>
+            </div>
+
+            <aside
+              id="panel-keranjang"
+              class="col-12 col-lg-4"
+              aria-label="Keranjang Pesanan dan Form Pelanggan"
+            >
+              <div class="cart-panel-card p-3 p-sm-4">
+                <div
+                  class="d-flex justify-content-between align-items-center gap-2 pb-3 mb-3 border-bottom card-divider"
+                >
+                  <div class="d-flex align-items-center gap-2">
+                    <img
+                      src="assets/icons/cart.svg"
+                      width="16"
+                      height="16"
+                      class="cart-panel-icon"
+                      alt=""
+                    />
+                    <h2 class="h5 mb-0 cart-panel-title">Keranjang pesanan</h2>
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <span id="badge-keranjang-sidebar" class="badge badge-keranjang"
+                      >0</span
+                    >
+                    <button
+                      type="button"
+                      id="btn-kosongkan-keranjang"
+                      class="btn btn-sm btn-hapus-keranjang d-none"
+                    >
+                      Kosongkan
+                    </button>
+                  </div>
+                </div>
+
+                <div
+                  id="keranjang-kosong"
+                  class="cart-empty-box text-center py-4 mb-3"
+                >
+                  <p class="mb-1 fw-semibold">Keranjang masih kosong</p>
+                  <p class="cart-empty-hint mb-0">
+                    Klik tombol "+ Tambah" pada menu untuk mulai memesan.
+                  </p>
+                </div>
+
+                <div
+                  id="list-keranjang"
+                  class="cart-items-list mb-3"
+                  aria-live="polite"
+                ></div>
+
+                <div class="cart-summary-box mb-4">
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-2"
+                  >
+                    <span class="cart-summary-label">Total Kuantitas</span>
+                    <span id="total-item-keranjang" class="cart-summary-value"
+                      >0 item</span
+                    >
+                  </div>
+                  <div class="d-flex flex-column align-items-start">
+                    <span class="cart-total-label">Total Pembayaran</span>
+                    <span id="total-harga-keranjang" class="cart-total-amount">Rp 0</span>
+                  </div>
+                </div>
+
+                <form
+                  id="form-pemesanan"
+                  novalidate
+                  aria-label="Form Data Pelanggan"
+                >
+                  <h3 class="h6 mb-3 cart-form-heading">Data Pemesan</h3>
+
+                  <div class="mb-3">
+                    <label
+                      for="nama-pelanggan"
+                      class="form-label form-label-custom"
+                    >
+                      Nama pelanggan
+                      <span class="required-mark" aria-hidden="true">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="nama-pelanggan"
+                      name="customerName"
+                      class="form-control form-control-custom"
+                      placeholder="Masukkan nama Anda"
+                      required
+                      minlength="2"
+                      maxlength="60"
+                      autocomplete="name"
+                    />
+                    <div
+                      id="error-nama-pelanggan"
+                      class="invalid-feedback"
+                    ></div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label
+                      for="nomor-meja"
+                      class="form-label form-label-custom"
+                    >
+                      Nomor meja
+                      <span class="required-mark" aria-hidden="true">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="nomor-meja"
+                      name="tableNumber"
+                      class="form-control form-control-custom"
+                      placeholder="Contoh: 12 atau A5"
+                      required
+                      minlength="1"
+                      maxlength="3"
+                      pattern="^[A-Za-z]?[0-9]{1,2}$"
+                    />
+                    <div id="error-nomor-meja" class="invalid-feedback"></div>
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="catatan-pesanan" class="form-label form-label-custom">
+                      Catatan <span class="optional-tag">(opsional)</span>
+                    </label>
+                    <textarea
+                      id="catatan-pesanan"
+                      name="orderNote"
+                      class="form-control form-control-custom"
+                      rows="2"
+                      maxlength="150"
+                      placeholder="Contoh: Sambal dipisah, kurangi es"
+                    ></textarea>
+                    <div id="error-catatan-pesanan" class="invalid-feedback"></div>
+                  </div>
+
+                  <div
+                    id="alert-form-pemesanan"
+                    class="alert alert-danger form-alert-custom d-none mb-3"
+                    role="alert"
+                  ></div>
+
+                  <button
+                    type="submit"
+                    id="btn-submit-pesanan"
+                    class="btn btn-custom-primary w-100"
+                  >
+                    Konfirmasi Pesanan &rarr;
+                  </button>
+                </form>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="restaurant-info" class="info-section">
+        <div class="container app-container">
+          <div class="info-card">
+            <h2>TENTANG<br />KAMI.</h2>
+            <p class="info-text mb-0">
+              Synth &amp; Spice adalah restoran cepat saji dengan konsep kota
+              malam futuristik yang menyajikan burger smash, ramen pedas,
+              camilan goreng, serta minuman soda dan kopi dingin.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container app-container">
+        <div class="d-flex align-items-center">
+          <img
+            src="assets/logo/synth-spice-logo.svg"
+            width="160"
+            height="32"
+            alt="Logo Synth and Spice"
+          />
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal Keranjang Pesanan -->
+    <div
+      class="modal fade"
+      id="modal-keranjang"
+      tabindex="-1"
+      aria-labelledby="labelModalKeranjang"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+      >
+        <div class="modal-content modal-custom">
+          <div class="modal-header-custom">
+            <h2 class="modal-title-custom mb-0" id="labelModalKeranjang">
+              Keranjang pesanan
+            </h2>
+            <button
+              type="button"
+              class="btn btn-modal-tutup"
+              data-bs-dismiss="modal"
+            >
+              Tutup
+            </button>
+          </div>
+
+          <div class="modal-body-custom">
+            <div id="modal-keranjang-kosong" class="text-center py-4 d-none">
+              <p class="mb-1 fw-semibold">Keranjang masih kosong</p>
+              <p class="cart-empty-hint mb-0">
+                Silakan pilih menu terlebih dahulu.
+              </p>
+            </div>
+            <div id="modal-keranjang-list" class="modal-item-list"></div>
+          </div>
+
+          <div class="modal-footer-custom">
+            <div
+              class="d-flex justify-content-between align-items-end mb-4 pt-3 border-top card-divider"
+            >
+              <div>
+                <span class="modal-total-label d-block"
+                  >TOTAL PEMBAYARAN</span
+                >
+                <span class="modal-item-count"
+                  ><strong id="modal-keranjang-qty">0</strong> item dipilih</span
+                >
+              </div>
+              <div class="modal-price-wrap">
+                <span class="modal-currency">Rp</span>
+                <span id="modal-keranjang-total" class="modal-total-num"
+                  >0</span
+                >
+              </div>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-12 col-sm-6">
+                <button
+                  type="button"
+                  class="btn btn-modal-batal w-100"
+                  data-bs-dismiss="modal"
+                >
+                  Pilih menu lagi
+                </button>
+              </div>
+              <div class="col-12 col-sm-6">
+                <button
+                  type="button"
+                  id="btn-tinjau-pesanan"
+                  class="btn btn-modal-konfirmasi w-100"
+                >
+                  Tinjau pesanan
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Ringkasan Pesanan -->
+    <div
+      class="modal fade"
+      id="modal-ringkasan"
+      tabindex="-1"
+      aria-labelledby="labelModalRingkasan"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+      >
+        <div class="modal-content modal-custom">
+          <div class="modal-header-custom">
+            <div>
+              <h2 class="modal-title-custom mb-2" id="labelModalRingkasan">
+                Ringkasan pesanan
+              </h2>
+              <p class="modal-subtitle-custom mb-0">
+                Pastikan menu dan jumlah pesanan sudah sesuai.
+              </p>
+            </div>
+            <button
+              type="button"
+              class="btn btn-modal-tutup"
+              data-bs-dismiss="modal"
+            >
+              Tutup
+            </button>
+          </div>
+
+          <div class="modal-body-custom">
+            <div id="modal-ringkasan-list" class="modal-item-list"></div>
+          </div>
+
+          <div class="modal-footer-custom">
+            <div
+              class="d-flex justify-content-between align-items-end mb-4 pt-3 border-top card-divider"
+            >
+              <div>
+                <span class="modal-total-label d-block"
+                  >TOTAL PEMBAYARAN</span
+                >
+                <span class="modal-item-count"
+                  ><strong id="modal-ringkasan-qty">0</strong> item dipilih</span
+                >
+              </div>
+              <div class="modal-price-wrap">
+                <span class="modal-currency">Rp</span>
+                <span id="modal-ringkasan-total" class="modal-total-num"
+                  >0</span
+                >
+              </div>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-12 col-sm-6">
+                <button
+                  type="button"
+                  id="btn-ubah-pesanan"
+                  class="btn btn-modal-batal w-100"
+                >
+                  Ubah pesanan
+                </button>
+              </div>
+              <div class="col-12 col-sm-6">
+                <button
+                  type="button"
+                  id="btn-konfirmasi-pesanan"
+                  class="btn btn-modal-konfirmasi w-100"
+                >
+                  Konfirmasi pesanan
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Konfirmasi Pesanan -->
+    <div
+      class="modal fade"
+      id="modal-konfirmasi"
+      tabindex="-1"
+      aria-labelledby="labelModalKonfirmasi"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-custom modal-sukses">
+          <div class="modal-top-bar"></div>
+          <div class="modal-sukses-body">
+            <h2 class="modal-title-custom mb-2" id="labelModalKonfirmasi">
+              Pesanan Dikonfirmasi
+            </h2>
+            <p class="modal-subtitle-custom mb-4">
+              Terima kasih! Pesanan Anda telah diterima dan sedang diproses.
+            </p>
+
+            <div class="order-receipt-box mb-4">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="receipt-label">Nomor Pesanan</span>
+                <span id="nomor-pesanan-sukses" class="receipt-value text-highlight-orange">-</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="receipt-label">Pemesan &amp; Meja</span>
+                <span id="pemesan-pesanan-sukses" class="receipt-sub">-</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center pt-2 border-top card-divider">
+                <span class="receipt-label fw-bold">Total Pembayaran</span>
+                <span id="total-pesanan-sukses" class="receipt-total">-</span>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-modal-konfirmasi w-100"
+              data-bs-dismiss="modal"
+            >
+              Kembali ke Menu
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Konfirmasi Hapus Item -->
+    <div
+      class="modal fade"
+      id="modal-hapus"
+      tabindex="-1"
+      aria-labelledby="labelModalHapus"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-custom">
+          <div class="modal-header-custom">
+            <h2 class="modal-title-custom h5 mb-0" id="labelModalHapus">
+              Konfirmasi Penghapusan
+            </h2>
+            <button
+              type="button"
+              class="btn btn-modal-tutup"
+              data-bs-dismiss="modal"
+            >
+              Tutup
+            </button>
+          </div>
+          <div class="modal-body-custom py-3">
+            <p id="pesan-modal-hapus" class="mb-2">
+              Anda yakin ingin menghapus item berikut dari keranjang?
+            </p>
+            <p
+              id="nama-item-hapus"
+              class="fw-bold text-highlight-orange mb-0"
+            ></p>
+          </div>
+          <div class="modal-footer-custom pt-2">
+            <div class="row g-3">
+              <div class="col-6">
+                <button
+                  type="button"
+                  class="btn btn-modal-batal w-100"
+                  data-bs-dismiss="modal"
+                >
+                  Batal
+                </button>
+              </div>
+              <div class="col-6">
+                <button
+                  type="button"
+                  id="btn-ya-hapus"
+                  class="btn btn-custom-danger w-100"
+                >
+                  Ya, Hapus
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/menu-data.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/jquery-interactions.js"></script>
+  </body>
+</html>
