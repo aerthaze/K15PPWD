@@ -92,15 +92,8 @@ K15PPWD/
 │       ├── food/ (hero-signature-combo.jpg, neon-smash-burger.jpg, cyber-spicy-ramen.jpg, voltage-chicken-rice.jpg)
 │       ├── drinks/ (electric-citrus-fizz.jpg, magenta-berry-soda.jpg, midnight-cold-brew.jpg)
 │       └── snacks/ (circuit-loaded-fries.jpg, crimson-spice-wings.jpg, pulse-crispy-gyoza.jpg)
-└── docs/
-    ├── REQUIREMENT-MATRIX.md
-    ├── PEMBAGIAN-TUGAS.md
-    ├── PANDUAN-GITHUB.md
-    ├── INTEGRATION-CONTRACT.md
-    ├── TEST-PLAN.md
-    ├── WIRE-FRAME.md
-    ├── PERSIAPAN-PRESENTASI.md
-    └── screenshots/
+└── laporan.pdf
+
 ```
 
 ---
@@ -136,9 +129,8 @@ K15PPWD/
 | 1 | Muhammad Hafizh Alfitra | H1101251003 | JavaScript Vanilla | `feature/javascript` | `js/menu-data.js`, `js/script.js` |
 | 2 | Dimas Lutfi Salim | H1101251004 | jQuery | `feature/jquery` | `js/jquery-interactions.js` |
 | 3 | Muhammad Farras Haidar Revanezka | H1101251035 | CSS | `feature/css` | `css/style.css` |
-| 4 | Chattama Albiantoro | H1101251069 | HTML &amp; Dokumentasi | `feature/html` | `index.html`, `assets/`, `docs/` |
+| 4 | Chattama Albiantoro | H1101251069 | HTML &amp; Dokumentasi | `feature/html` | `index.html`, `assets/` |
 
-- `README.md` dikelola khusus di branch `main` (file ini tidak ditaruh di branch fitur).
 
 - Rencana kontribusi awal setara (25% per anggota); persentase kontribusi final dicatat berdasarkan riwayat Pull Request aktual pada repository `https://github.com/aerthaze/K15PPWD.git`.
 - Lihat panduan lengkap kolaborasi Git pada [docs/PANDUAN-GITHUB.md](docs/PANDUAN-GITHUB.md) dan rincian integrasi pada [docs/INTEGRATION-CONTRACT.md](docs/INTEGRATION-CONTRACT.md).
