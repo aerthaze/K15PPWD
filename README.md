@@ -8,7 +8,7 @@ Aplikasi web pemesanan makanan digital **Synth & Spice** untuk memenuhi Proyek U
 
 - **Nomor Studi Kasus**: K15 - Sistem Pemesanan Makanan Restoran
 - **Nama Sistem**: Synth & Spice Restaurant Ordering System
-- **Jenis Restoran**: Fast food restaurant bertema Cyberpunk Futuristic
+- **Jenis Restoran**: Fast food restaurant bertema gelap futuristik
 - **Sifat Aplikasi**: Frontend-only web application (tanpa backend dan tanpa database)
 - **Dosen Pengampu**: SYAHRU RAHMAYUDA, S.Kom., M.Kom.
 - **Asisten Dosen**:
@@ -38,8 +38,8 @@ Mengintegrasikan HTML5 semantik, CSS3 eksternal, Bootstrap 5, JavaScript Vanilla
 ## 3. Teknologi yang Digunakan
 
 - **HTML5**: Struktur semantik (`<header>`, `<nav>`, `<main>`, `<section>`, `<aside>`, `<footer>`) dan atribut validasi form.
-- **CSS3 (`css/style.css`)**: Palet tema Cyberpunk Futuristic (`#05070D`, `#0B1220`, `#00E5FF`, `#1677FF`, `#FF2BD6`, `#FF3158`, `#F4F7FF`, `#9BA8BC`), layout responsif mobile-first, tanpa inline style.
-- **Bootstrap 5.3.3**: Grid system (`container`, `row`, `col-12`, `col-md-6`, `col-lg-4`, `col-lg-8`) dan 7 komponen aktif (Navbar, Card, Modal, Button, Badge, Alert, Table).
+- **CSS3 (`css/style.css`)**: Palet gelap hangat bertema futuristik (`#12100E`, `#1A1614`, `#1F1915`, `#231E1B`, `#F27D38`, `#F5F2EE`, `#9E958E`), tipografi *Chakra Petch* dan *Plus Jakarta Sans*, layout responsif mobile-first, tanpa inline style.
+- **Bootstrap 5.3.3**: Grid system (`container`, `row`, `col-12`, `col-md-6`, `col-lg-4`, `col-lg-8`) dan 6 komponen aktif (Navbar, Card, Modal [4 modal], Button, Badge, Alert).
 - **JavaScript Vanilla (`js/menu-data.js`, `js/script.js`)**: Data array statis 9 menu, pengelolaan state keranjang melalui `window.SynthSpiceApp`, pengecekan stok, penghitungan total, nomor pesanan unik `SSP-YYYYMMDD-XXXX`, dan persistensi `localStorage`.
 - **jQuery 3.7.1 (`js/jquery-interactions.js`)**: Selector `$()`, event handling (`click`, `input`, `mouseenter`/`mouseleave`, `blur`, `submit`), manipulasi DOM (`.html()`, `.text()`, `.val()`, `.addClass()`, `.removeClass()`, `.toggleClass()`), validasi form client-side, dan kendali modal Bootstrap.
 

@@ -86,8 +86,9 @@ $(document).ready(function () {
                         '<h3 class="card-title menu-card-title h5 mb-2">' + escapeHtml(item.nama) + '</h3>' +
                         '<p class="card-text menu-card-desc mb-3">' + escapeHtml(item.deskripsi) + '</p>' +
                         '<div class="mt-auto">' +
-                            '<div class="mb-2">' +
+                            '<div class="d-flex justify-content-between align-items-baseline gap-2 mb-2">' +
                                 '<span class="menu-price">' + escapeHtml(formattedPrice) + '</span>' +
+                                '<span class="menu-stock' + (isMaxed ? ' is-low' : '') + '">Stok: ' + escapeHtml(stockInfo.remaining) + ' porsi</span>' +
                             '</div>' +
                             '<button type="button" class="btn btn-tambah-menu btn-add-to-cart" data-id="' + escapeHtml(item.id) + '"' + (isMaxed ? ' disabled' : '') + '>' +
                                 (isMaxed ? 'Batas Stok' : '+ Tambah') +
@@ -272,12 +273,12 @@ $(document).ready(function () {
 
     function setFieldError($input, $feedback, message) {
         $input.removeClass('is-valid').addClass('is-invalid');
-        $feedback.text(message).css('display', 'block');
+        $feedback.text(message);
     }
 
     function clearFieldError($input, $feedback, markValid) {
         $input.removeClass('is-invalid');
-        $feedback.text('').css('display', 'none');
+        $feedback.text('');
         if (markValid) {
             $input.addClass('is-valid');
         } else {
@@ -368,28 +369,39 @@ $(document).ready(function () {
         $('#modal-ringkasan-catatan').text(note || '-');
     }
 
+    function switchModal(fromEl, fromInstance, toInstance) {
+        if (!fromEl || !fromInstance || !fromEl.classList.contains('show')) {
+            if (toInstance) {
+                toInstance.show();
+            }
+            return;
+        }
+        fromEl.addEventListener('hidden.bs.modal', function () {
+            if (toInstance) {
+                toInstance.show();
+            }
+        }, { once: true });
+        if (fromInstance._isTransitioning) {
+            fromEl.addEventListener('shown.bs.modal', function () {
+                fromInstance.hide();
+            }, { once: true });
+        } else {
+            fromInstance.hide();
+        }
+    }
+
     // Tinjau pesanan
     $('#btn-tinjau-pesanan').on('click', function () {
         if (window.SynthSpiceApp.getCart().length === 0) {
             return;
         }
         updateReviewModalInfo();
-        if (cartModalInstance) {
-            cartModalInstance.hide();
-        }
-        if (reviewModalInstance) {
-            reviewModalInstance.show();
-        }
+        switchModal(cartModalEl, cartModalInstance, reviewModalInstance);
     });
 
     // Kembali ke modal keranjang
     $('#btn-ubah-pesanan').on('click', function () {
-        if (reviewModalInstance) {
-            reviewModalInstance.hide();
-        }
-        if (cartModalInstance) {
-            cartModalInstance.show();
-        }
+        switchModal(reviewModalEl, reviewModalInstance, cartModalInstance);
     });
 
     // Konfirmasi pesanan
@@ -428,21 +440,15 @@ $(document).ready(function () {
         }
         $('#item-pesanan-sukses').html(itemsHtml);
 
-        if (reviewModalInstance) {
-            reviewModalInstance.hide();
-        }
-
         var formEl = document.getElementById('form-pemesanan');
         if (formEl) {
             formEl.reset();
         }
         $('#nama-pelanggan, #nomor-meja, #catatan-pesanan').removeClass('is-valid is-invalid');
-        $('#error-nama-pelanggan, #error-nomor-meja, #error-catatan-pesanan').text('').css('display', 'none');
+        $('#error-nama-pelanggan, #error-nomor-meja, #error-catatan-pesanan').text('');
 
         refreshAllViews();
-        if (orderModalInstance) {
-            orderModalInstance.show();
-        }
+        switchModal(reviewModalEl, reviewModalInstance, orderModalInstance);
     });
 
     $('#filter-kategori').on('click', '.btn-filter-category', function () {

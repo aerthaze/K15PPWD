@@ -509,6 +509,17 @@ textarea:focus-visible {
   font-size: 0.98rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.menu-stock {
+  color: var(--text-secondary);
+  font-size: 0.74rem;
+  white-space: nowrap;
+}
+
+.menu-stock.is-low {
+  color: var(--danger-text);
 }
 
 .menu-card .btn-add-to-cart {
