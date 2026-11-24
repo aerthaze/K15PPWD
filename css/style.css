@@ -509,6 +509,17 @@ textarea:focus-visible {
   font-size: 0.98rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.menu-stock {
+  color: var(--text-secondary);
+  font-size: 0.74rem;
+  white-space: nowrap;
+}
+
+.menu-stock.is-low {
+  color: var(--danger-text);
 }
 
 .menu-card .btn-add-to-cart {
@@ -919,6 +930,30 @@ textarea:focus-visible {
   font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 700;
+}
+
+.receipt-item-list {
+  max-height: 180px;
+  overflow-y: auto;
+  font-size: 0.85rem;
+  scrollbar-width: thin;
+}
+
+.receipt-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.35rem 0;
+  border-bottom: 1px dashed var(--border-subtle);
+}
+
+.receipt-item-row:last-child {
+  border-bottom: none;
+}
+
+.modal-info-box {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
 }
 
 .btn-trash-item {
