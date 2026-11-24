@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Synth &amp; Spice Restaurant Ordering System - Sistem pemesanan makanan fast food digital untuk studi kasus K15."
+      content="Synth &amp; Spice Restaurant Ordering System: sistem pemesanan makanan fast food digital untuk studi kasus K15."
     />
     <title>Synth &amp; Spice | Sistem Pemesanan Makanan Restoran</title>
     <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg" />
@@ -43,9 +43,9 @@
           </a>
 
           <div class="d-flex align-items-center gap-2 order-lg-3">
-            <a
+            <button
+              type="button"
               id="btn-keranjang"
-              href="#modal-keranjang"
               class="btn btn-nav-keranjang d-inline-flex align-items-center gap-2"
               aria-label="Buka keranjang pesanan"
             >
@@ -57,7 +57,7 @@
                 aria-label="Total item di keranjang"
                 >0</span
               >
-            </a>
+            </button>
             <button
               class="navbar-toggler custom-toggler"
               type="button"
@@ -112,7 +112,7 @@
                   width="1200"
                   height="750"
                   fetchpriority="high"
-                  alt="Paket andalan Synth &amp; Spice berisi burger roti arang, kentang keju, dan minuman citrus biru dingin"
+                  alt="Paket andalan Synth and Spice berisi burger roti arang, kentang keju, dan minuman citrus biru dingin"
                 />
               </figure>
             </div>
@@ -124,7 +124,7 @@
         <div class="container app-container">
           <div class="row g-4 align-items-start">
             <div class="col-12 col-lg-8">
-              <div class="catalog-toolbar pb-3 mb-4">
+              <div class="catalog-toolbar pb-3 mb-3">
                 <div class="row g-3 align-items-center mb-3">
                   <div class="col-12 col-md-6">
                     <h2 class="section-title mb-0">Menu Digital</h2>
@@ -166,7 +166,7 @@
 
                 <div
                   id="filter-kategori"
-                  class="d-flex flex-wrap gap-3"
+                  class="d-flex flex-wrap gap-2"
                   role="group"
                   aria-label="Filter kategori menu"
                 >
@@ -223,7 +223,7 @@
                 </div>
               </div>
 
-              <p id="info-menu" class="menu-result-info visually-hidden">
+              <p id="info-menu" class="menu-result-info mb-3" aria-live="polite">
                 Memuat daftar menu...
               </p>
 
@@ -332,7 +332,7 @@
                       >0 item</span
                     >
                   </div>
-                  <div class="d-flex flex-column align-items-start">
+                  <div class="d-flex justify-content-between align-items-baseline gap-2">
                     <span class="cart-total-label">Total Pembayaran</span>
                     <span id="total-harga-keranjang" class="cart-total-amount">Rp 0</span>
                   </div>
@@ -418,7 +418,7 @@
                     id="btn-submit-pesanan"
                     class="btn btn-custom-primary w-100"
                   >
-                    Konfirmasi Pesanan &rarr;
+                    Konfirmasi Pesanan
                   </button>
                 </form>
               </div>
@@ -434,7 +434,8 @@
             <p class="info-text mb-0">
               Synth &amp; Spice adalah restoran cepat saji dengan konsep kota
               malam futuristik yang menyajikan burger smash, ramen pedas,
-              camilan goreng, serta minuman soda dan kopi dingin.
+              camilan goreng, serta minuman soda dan kopi dingin. Seluruh harga
+              dan stok yang tampil merupakan data simulasi pemesanan meja.
             </p>
           </div>
         </div>
@@ -443,13 +444,16 @@
 
     <footer class="site-footer">
       <div class="container app-container">
-        <div class="d-flex align-items-center">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
           <img
             src="assets/logo/synth-spice-logo.svg"
             width="160"
             height="32"
             alt="Logo Synth and Spice"
           />
+          <p class="footer-note mb-0">
+            Synth &amp; Spice K15: Aplikasi simulasi pemesanan menu restoran.
+          </p>
         </div>
       </div>
     </footer>
@@ -501,9 +505,8 @@
                 >
               </div>
               <div class="modal-price-wrap">
-                <span class="modal-currency">Rp</span>
                 <span id="modal-keranjang-total" class="modal-total-num"
-                  >0</span
+                  >Rp 0</span
                 >
               </div>
             </div>
@@ -550,7 +553,7 @@
                 Ringkasan pesanan
               </h2>
               <p class="modal-subtitle-custom mb-0">
-                Pastikan menu dan jumlah pesanan sudah sesuai.
+                Pastikan menu, data pemesan, dan jumlah pesanan sudah sesuai.
               </p>
             </div>
             <button
@@ -566,13 +569,17 @@
             <div id="modal-ringkasan-list" class="modal-item-list mb-3"></div>
 
             <div class="modal-info-box p-3 rounded">
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="text-secondary small">Waktu Pemesanan</span>
-                <span id="modal-ringkasan-waktu" class="small fw-semibold text-main">-</span>
+              <div class="d-flex justify-content-between align-items-center mb-2 gap-2">
+                <span class="modal-info-label">Pemesan &amp; Meja</span>
+                <span id="modal-ringkasan-pemesan" class="modal-info-value">-</span>
               </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="text-secondary small">Catatan</span>
-                <span id="modal-ringkasan-catatan" class="small fst-italic text-main">-</span>
+              <div class="d-flex justify-content-between align-items-center mb-2 gap-2">
+                <span class="modal-info-label">Waktu Pemesanan</span>
+                <span id="modal-ringkasan-waktu" class="modal-info-value">-</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center gap-2">
+                <span class="modal-info-label">Catatan</span>
+                <span id="modal-ringkasan-catatan" class="modal-info-value fst-italic">-</span>
               </div>
             </div>
           </div>
@@ -590,9 +597,8 @@
                 >
               </div>
               <div class="modal-price-wrap">
-                <span class="modal-currency">Rp</span>
                 <span id="modal-ringkasan-total" class="modal-total-num"
-                  >0</span
+                  >Rp 0</span
                 >
               </div>
             </div>
@@ -633,27 +639,35 @@
         <div class="modal-content modal-custom modal-sukses">
           <div class="modal-top-bar"></div>
           <div class="modal-sukses-body">
-            <h2 class="modal-title-custom mb-2" id="labelModalKonfirmasi">
-              Pesanan Dikonfirmasi
-            </h2>
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <img
+                src="assets/icons/check-circle.svg"
+                width="28"
+                height="28"
+                alt=""
+              />
+              <h2 class="modal-title-custom mb-0" id="labelModalKonfirmasi">
+                Pesanan Dikonfirmasi
+              </h2>
+            </div>
             <p class="modal-subtitle-custom mb-4">
-              Terima kasih! Pesanan Anda telah diterima dan sedang diproses.
+              Terima kasih. Pesanan Anda telah diterima dan sedang diproses.
             </p>
 
             <div class="order-receipt-box mb-4">
-              <div class="d-flex justify-content-between align-items-center mb-2">
+              <div class="d-flex justify-content-between align-items-center mb-2 gap-2">
                 <span class="receipt-label">Nomor Pesanan</span>
-                <span id="nomor-pesanan-sukses" class="receipt-value text-highlight-orange">-</span>
+                <span id="nomor-pesanan-sukses" class="receipt-value text-highlight-cyan">-</span>
               </div>
-              <div class="d-flex justify-content-between align-items-center mb-2">
+              <div class="d-flex justify-content-between align-items-center mb-2 gap-2">
                 <span class="receipt-label">Waktu Pemesanan</span>
                 <span id="waktu-pesanan-sukses" class="receipt-sub">-</span>
               </div>
-              <div class="d-flex justify-content-between align-items-center mb-2">
+              <div class="d-flex justify-content-between align-items-center mb-2 gap-2">
                 <span class="receipt-label">Pemesan &amp; Meja</span>
                 <span id="pemesan-pesanan-sukses" class="receipt-sub">-</span>
               </div>
-              <div class="d-flex justify-content-between align-items-center mb-2">
+              <div class="d-flex justify-content-between align-items-center mb-2 gap-2">
                 <span class="receipt-label">Catatan</span>
                 <span id="catatan-pesanan-sukses" class="receipt-sub fst-italic">-</span>
               </div>
@@ -663,7 +677,7 @@
                 <div id="item-pesanan-sukses" class="receipt-item-list"></div>
               </div>
 
-              <div class="d-flex justify-content-between align-items-center pt-2">
+              <div class="d-flex justify-content-between align-items-center pt-2 gap-2">
                 <span class="receipt-label fw-bold">Total Pembayaran</span>
                 <span id="total-pesanan-sukses" class="receipt-total">-</span>
               </div>
@@ -681,7 +695,6 @@
       </div>
     </div>
 
-    <!-- Modal Konfirmasi Hapus Item -->
     <div
       class="modal fade"
       id="modal-hapus"
@@ -709,7 +722,7 @@
             </p>
             <p
               id="nama-item-hapus"
-              class="fw-bold text-highlight-orange mb-0"
+              class="fw-bold text-highlight-cyan mb-0"
             ></p>
           </div>
           <div class="modal-footer-custom pt-2">
