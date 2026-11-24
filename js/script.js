@@ -19,7 +19,7 @@
         };
     }
 
-    // Duplikasi data menu
+    // Salinan dangkal menjaga agar array sumber menu tidak ikut berubah saat dimodifikasi pemanggil.
     function cloneMenuItem(item) {
         return {
             id: item.id,
@@ -54,7 +54,7 @@
         return null;
     }
 
-    // Format angka ke format mata uang Rupiah
+    // Regex eksplisit menjaga format titik ribuan tetap sama di berbagai setelan bahasa browser.
     function formatRupiah(amount) {
         var numeric = Number(amount);
         if (!isFinite(numeric) || isNaN(numeric)) {
@@ -66,7 +66,7 @@
         return sign + 'Rp ' + formattedDigits;
     }
 
-    // Simpan data keranjang ke localStorage
+    // Simpan ringkas sebagai pasangan { id, jumlah } agar tidak memenuhi kuota storage browser.
     function saveCartToStorage() {
         var config = getConfig();
         try {
@@ -87,7 +87,7 @@
         }
     }
 
-    // Ambil data keranjang dari localStorage
+    // Pulihkan keranjang sekaligus buang ID tak dikenal, batasi stok simulasi, dan reset jika JSON rusak.
     function loadCartFromStorage() {
         var config = getConfig();
         var hadInvalidData = false;
@@ -149,6 +149,7 @@
                     global.localStorage.removeItem(config.storageKey);
                 }
             } catch (cleanupErr) {
+                // Abaikan bila akses storage diblokir sepenuhnya oleh browser.
             }
             state.cartItems = [];
             return { restoredCount: 0, hadInvalidData: true };
@@ -253,7 +254,7 @@
         return total;
     }
 
-    // Hitung total kuantitas item di keranjang
+    // Menghitung total unit seluruh produk di keranjang (mis. 2 burger + 1 minuman = 3).
     function getTotalQuantity() {
         var qtyTotal = 0;
         for (var i = 0; i < state.cartItems.length; i += 1) {
@@ -315,7 +316,7 @@
         return addToCart(menuId, 1);
     }
 
-    // Kurangi kuantitas item keranjang
+    // Jika jumlah tinggal 1, kembalikan CONFIRM_REMOVE agar UI meminta konfirmasi modal lebih dulu.
     function decrementItem(menuId) {
         var entry = findCartEntry(menuId);
         var menu = findRawMenu(menuId);
@@ -392,7 +393,7 @@
         };
     }
 
-    // Generate nomor pesanan unik
+    // Gabungan tanggal, angka acak, dan urutan sesi mencegah nomor duplikat saat submit beruntun.
     function generateOrderNumber() {
         var config = getConfig();
         var now = new Date();
@@ -416,7 +417,7 @@
         return dd + '/' + mm + '/' + yyyy + ' ' + hh + ':' + min + ' WIB';
     }
 
-    // Buat pesanan baru
+    // Kunci isCreatingOrder mencegah transaksi simulasi ganda akibat klik tombol beruntun.
     function createOrder(customerData) {
         if (state.isCreatingOrder) {
             return {
