@@ -1,6 +1,5 @@
-# Artifacts lokal distribusi & audit (tidak di-commit ke branch aplikasi utama)
+# Folder distribusi lokal (tidak di-commit ke branch aplikasi utama)
 handover/
-anti-slop/
 
 # Dependensi (jika ada tools lokal terpasang)
 node_modules/
